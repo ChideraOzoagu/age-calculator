@@ -80,14 +80,15 @@ function App() {
     if(months < 0 || (months === 0 && days< 0)) {
       years--
       months = months + 12
-      if (days < 0) {
-        const prevMonthLastDay = new Date(
-          today.getFullYear(),
-          today.getMonth(),
-          0
-        ).getDate();
-        days += prevMonthLastDay;
-      }
+    } 
+    if (days < 0) {
+      const prevMonthLastDay = new Date(
+        today.getFullYear(),
+        today.getMonth(),
+        0
+      ).getDate();
+      months--
+      days += prevMonthLastDay;
     }
 
     setAge({ years, months, days });
